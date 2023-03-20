@@ -1,0 +1,19 @@
+cd C:\dev\kafka_2.12-3.4.0\bin\windows
+
+kafka-topics --list --bootstrap-server localhost:9092
+
+kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic first-topic
+
+kafka-topics --describe --bootstrap-server localhost:9092 --topic first-topic
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic first-topic
+
+kafka-console-producer --broker-list localhost:9092 --topic first-topic
+
+kafka-topics --delete --bootstrap-server localhost:9092 --topic first-topic                           
+
+Note:
+
+For delete add the following in kafka server.properties
+
+delete.topic.enable=true
